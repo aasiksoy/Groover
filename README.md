@@ -37,6 +37,24 @@ This project was developed as part of an academic course (Grade: **17/20**) and 
 
 ### **APIs**
 - Spotify Web API  
-- GroepT SQL Web Services  
+- GroepT SQL Web Services
+
+---
+
+This project uses the following open-source libraries:
+
+CardStackView by yuyakaido
+Licensed under the Apache License 2.0
+https://github.com/yuyakaido/CardStackView
+
+Picasso by Square
+Licensed under the Apache License 2.0
+https://github.com/square/picasso
+
+---
+
+### **Contribution**
+
+This is a student project, but improvements, suggestions, and pull requests are welcome!
 
 
