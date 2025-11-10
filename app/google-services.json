@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "50304079854",
+    "project_id": "groover-894e2",
+    "storage_bucket": "groover-894e2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50304079854:android:228f194d087a919a29e0ff",
+        "android_client_info": {
+          "package_name": "be.kuleuven.gt.myapplication2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWu1scVmj5hXYJP8Lrw3By5RC1orXS8KE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

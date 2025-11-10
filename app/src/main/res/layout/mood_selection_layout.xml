@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black"
+    android:backgroundTint="@color/black"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:text="Select Your Mood"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnParty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#FF4081"
+        android:text="🎉 Party Mode" />
+
+    <Button
+        android:id="@+id/btnChill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#4CAF50"
+        android:text="😌 Chill &amp; Relax" />
+
+    <Button
+        android:id="@+id/btnFocus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#2196F3"
+        android:text="🎯 Focus Mode" />
+
+    <Button
+        android:id="@+id/btnWorkout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#FF5722"
+        android:text="💪 Workout" />
+
+    <Button
+        android:id="@+id/btnHappy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#FFC107"
+        android:text="😊 Happy" />
+
+    <Button
+        android:id="@+id/btnSad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#9C27B0"
+        android:text="😢 Sad" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#FFFFFF" />
+
+
+    <Button
+        android:id="@+id/btnTopSongs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🎵 Based on Your Top Tracks"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout> 
