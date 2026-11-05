@@ -96,20 +96,16 @@ public class LikedActivity extends AppCompatActivity {
      * Requires a valid Spotify OAuth token stored in SharedPreferences.
      */
     private void likeSongOnSpotify(Song song) {
-        SharedPreferences prefs = getSharedPreferences("grooverPrefs", MODE_PRIVATE);
-        String token = prefs.getString("SPOTIFY_TOKEN", null);
+        SpotifyAuth spotifyAuth = new SpotifyAuth(this);
+        String token = spotifyAuth.getAccessToken();
 
-        if (token == null) {
-            Toast.makeText(this, "Spotify token missing!", Toast.LENGTH_SHORT).show();
+        if (!spotifyAuth.hasValidAccessToken()) {
+            Toast.makeText(this, "Spotify session expired, please log in again", Toast.LENGTH_SHORT).show();
             return;
         }
 
         String songId = song.getId();
         String url = "https://api.spotify.com/v1/me/tracks?ids=" + songId;
-
-        Log.d("SPOTIFY_LIKE", "Trying to like song with ID: " + songId);
-        Log.d("SPOTIFY_LIKE", "Using token: " + token);
-        Log.d("SPOTIFY_LIKE", "Request URL: " + url);
 
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.PUT, url, null,
@@ -174,8 +170,6 @@ public class LikedActivity extends AppCompatActivity {
     private void deleteSongFromServer(Song song) {
         String url = "https://studev.groept.be/api/a24pt103/delete_liked_song/"
                 + Uri.encode(currentUsername) + "/" + Uri.encode(song.getId());
-
-        Log.d("DELETE_URL", url);
 
         StringRequest req = new StringRequest(
                 Request.Method.GET, url,

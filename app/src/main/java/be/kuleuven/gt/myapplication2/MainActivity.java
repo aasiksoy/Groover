@@ -98,14 +98,14 @@ public class MainActivity extends AppCompatActivity {
         // Retrieve stored prefs
         SharedPreferences prefs = getSharedPreferences("grooverPrefs", MODE_PRIVATE);
         currentUsername = prefs.getString("username", "testuser");
-        spotifyToken    = prefs.getString("SPOTIFY_TOKEN", null);
 
-        // If no Spotify token, redirect to login
-        if (spotifyToken == null || spotifyToken.isEmpty()) {
+        SpotifyAuth spotifyAuth = new SpotifyAuth(this);
+        if (!spotifyAuth.hasValidAccessToken()) {
             startActivity(new Intent(this, LoginActivity.class));
             finish();
             return;
         }
+        spotifyToken = spotifyAuth.getAccessToken();
 
         // Create-playlist button
         Button btnCreatePlaylist = findViewById(R.id.btnCreatePlaylist);
@@ -245,8 +245,6 @@ public class MainActivity extends AppCompatActivity {
                 + speechiness + "/" + acousticness + "/" + instrumentalness + "/"
                 + liveness + "/" + valence + "/" + tempo + "/" + currentUsername;
 
-        Log.d("RECOMMEND", "Fetching recommendations from: " + url);
-
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET, url, null,
                 response -> {
@@ -275,7 +273,6 @@ public class MainActivity extends AppCompatActivity {
 
         String idsParam = String.join(",", trackIds);
         String url      = "https://api.spotify.com/v1/tracks?ids=" + idsParam;
-        Log.d("SPOTIFY_BATCH_URL", "Calling: " + url);
 
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.GET, url, null,
@@ -552,8 +549,6 @@ public class MainActivity extends AppCompatActivity {
                 currentMoodPreset.mode, currentMoodPreset.speechiness, currentMoodPreset.acousticness,
                 currentMoodPreset.instrumentalness, currentMoodPreset.liveness,
                 currentMoodPreset.valence, currentMoodPreset.tempo, currentUsername);
-
-        Log.d("MOOD_DEBUG", "Loading songs with URL: " + url);
 
         JsonArrayRequest request = new JsonArrayRequest(
                 Request.Method.GET, url, null,
