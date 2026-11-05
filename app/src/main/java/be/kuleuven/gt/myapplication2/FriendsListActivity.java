@@ -7,7 +7,6 @@ package be.kuleuven.gt.myapplication2;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -102,7 +101,6 @@ public class FriendsListActivity extends AppCompatActivity {
                         try {
                             String friend = response.getJSONObject(i).getString("user2");
                             friendList.add(friend);
-                            Log.d("DEBUG", "Fetched friend: " + friend);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
